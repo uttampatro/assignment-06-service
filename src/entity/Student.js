@@ -33,6 +33,10 @@ const studentSchema = new Schema({
         max: 255,
         min: 3,
     },
+    status: {
+        type: Boolean,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('student', studentSchema);
