@@ -16,13 +16,12 @@ const studentSchema = new Schema({
     },
     school: {
         type: String,
-        unique: true,
         required: true,
         max: 255,
         min: 3,
     },
-    class: {
-        type: String,
+    std: {
+        type: Number,
         required: true,
         max: 255,
         min: 3,
@@ -35,8 +34,8 @@ const studentSchema = new Schema({
     },
     status: {
         type: Boolean,
-        required: true
-    }
+        required: true,
+    },
 });
 
 module.exports = mongoose.model('student', studentSchema);
