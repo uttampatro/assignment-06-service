@@ -16,7 +16,7 @@ router.post('/login', loginUser);
 //student
 router.post('/addStudent', addingStudent);
 router.get('/fetchAllStudent', getAllStudent);
-router.post('/updateStudent/:id', updatingStudent);
+router.put('/updateStudent/:id', updatingStudent);
 router.delete('/deleteStudent/:id', deletingStudent);
 
 module.exports = router;
