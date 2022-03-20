@@ -12,7 +12,6 @@ const studentSchema = new Schema({
         type: Number,
         required: true,
         unique: true,
-        min: 5,
     },
     school: {
         type: String,
