@@ -6,9 +6,16 @@ const addStudent = async ({ name, age, school, std, division, status }) => {
     return student;
 };
 
-const fetchAllStudent = async () => {
-    const student = await Student.find();
-    return student;
+const fetchAllStudent = async ({ limit, page }) => {
+    const studentList = await Student.find()
+        .skip(page > 0 ? (page - 1) * limit : 0)
+        .limit(limit)
+        .exec();
+    const totalStudentCount = await Student.countDocuments();
+    return {
+        studentList: studentList,
+        pagination: { limit, page, count: totalStudentCount },
+    };
 };
 
 const updateStudent = async (

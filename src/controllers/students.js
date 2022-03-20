@@ -34,8 +34,10 @@ const addingStudent = async (req, res) => {
 };
 const getAllStudent = async (req, res) => {
     try {
-        const StudentList = await fetchAllStudent();
-        return res.json(StudentList);
+        const page = req.query.page ? parseInt(req.query.page) : 1;
+        const limit = req.query.limit ? parseInt(req.query.limit) : 7;
+        const studentList = await fetchAllStudent({ page, limit });
+        return res.json(studentList);
     } catch (error) {
         return res.status(500).json({
             success: false,
